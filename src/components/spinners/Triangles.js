@@ -3,24 +3,24 @@ import styled, {keyframes} from 'styled-components'
 
 //keyframes
 const flipOne = keyframes`
-    25% {transform: rotate3d(0,1,0,180deg)}
-    50% {transform: rotate3d(0,0,1,180deg)}
-    75% {transform: rotate3d(1,0,0,180deg)}
+    25% {transform: rotateY(180deg)}
+    50% {transform: rotate(180deg)}
+    75% {transform: rotateX(180deg)}
 `
 const flipTwo = keyframes`
-    25% {transform: rotate3d(1,0,0,180deg)}
-    50% {transform: rotate3d(0,0,1,180deg)}
-    75% {transform: rotate3d(0,1,0,180deg)}
+    25% {transform: rotateX(180deg)}
+    50% {transform: rotate(180deg)}
+    75% {transform: rotateY(180deg)}
 `
 const flipThree = keyframes`
-    25% {transform: rotate3d(0,1,0,180deg)}
-    50% {transform: rotate3d(0,0,1,180deg)}
-    75% {transform: rotate3d(1,0,0,180deg)}
+    25% {transform: rotateY(180deg)}
+    50% {transform: rotate(180deg)}
+    75% {transform: rotateX(180deg)}
 `
 const flipFour = keyframes`
-    25% {transform: rotate3d(1,0,0,180deg)}
-    50% {transform: rotate3d(0,0,1,180deg)}
-    75% {transform: rotate3d(0,1,0,180deg)}
+    25% {transform: rotateX(180deg)}
+    50% {transform: rotate(180deg)}
+    75% {transform: rotateY(180deg)}
 `
 
 //Styling
