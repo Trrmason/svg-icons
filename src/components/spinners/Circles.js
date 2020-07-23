@@ -1,33 +1,46 @@
 import React from 'react'
-import './spinners.css'
+import styled, {keyframes} from 'styled-components'
+
+
+//keyframes
+const spinLeft = keyframes`
+    33.3% { transform: translate3D(146px, 0px, 0px); }
+    66.6% { transform: translate3D(73px,112px, 0px); }
+`
+const spinRight = keyframes`
+    33.3% { transform: translate3D(-73px, 112px, 0px); }
+    66.6% { transform: translate3D(-146px, 0px, 0px); }
+`
+const spinBottom = keyframes`
+    33.3% { transform: translate3D(-73px, -112px, 0px); }
+    66.6% { transform: translate3D(73px, -111px, 0px); }
+`
+
+
+//Styling
+const Icon = styled.svg``
+
+const LeftCircle = styled.circle`
+    animation: ${spinLeft} 2.5s infinite;
+`
+const RightCircle = styled.circle`
+    animation: ${spinRight} 2.5s infinite;
+`
+const BottomCircle = styled.circle`
+    animation: ${spinBottom} 2.5s infinite;
+`
+
 
 const Circles = (props) => {
     
-    //load props || defaults
     const size = (props.size) ? props.size : '10px'
-    const colors = (props.colors) ? props.colors.map((color) => color) : ['#C38D9D','#85CDCA','#FCC1C0']
-
-    //Styling
-    const style = {
-        leftCircleStyle : { fill: colors[0] },
-        rightCircleStyle : { fill: colors[1] },
-        bottomCircleStyle : { fill: colors[2] },
-    }
 
     return (
-    
-        <svg id='circles-svg' version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-            viewBox="0 0 230 185" xmlSpace="preserve" height={size} width={size}>
-            <g id="bottom-circle" style={style.bottomCircleStyle}>
-                <circle cx="109.5" cy="148.5" r="36"/>
-            </g>
-            <g id="right-circle" style={style.rightCircleStyle}>
-                <circle cx="182.5" cy="37.5" r="36"/>
-            </g>
-            <g id="left-circle" style={style.leftCircleStyle}>
-                <circle cx="36.5" cy="36.5" r="36"/>
-            </g>
-        </svg>
+        <Icon viewBox='0 0 230 185' height={size} width={size} style={props.style}>
+            <LeftCircle cx="36.5" cy="36.5" r="36" fill = {props.colors && props.colors.length > 0 ? props.colors[0] : '#C38D9D'}/>
+            <RightCircle cx="182.5" cy="37.5" r="36" fill = {props.color && props.colors.length > 1 ? props.colors[1] : '#85CDCA'}/>
+            <BottomCircle  cx="109.5" cy="148.5" r="36" fill = {props.color && props.colors.length > 2 ? props.colors[2] : '#FCC1C0'}/>
+        </Icon>
     )
 }
 
