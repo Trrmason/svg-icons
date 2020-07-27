@@ -44,7 +44,7 @@ const Stairs = (props) => {
     const width = (props.width) ? props.width : '20'
     
     return (
-        <Icon viewBox="0 0 109 100" width={size} height={size} style={props.style}>
+        <Icon viewBox="0 0 100 100" width={size} height={size} style={props.style}>
             <RectOne x="0.1" y="0.1" height="99.8" width={width} fill={props.colors && props.colors.length > 0 ? props.colors[0] : '#C38D9D'} />
             <RectTwo x="28.6" y="25.1" height="74.8" width={width} fill={props.colors && props.colors.length > 1 ? props.colors[1] : '#85CDCA'} />
             <RectThree x="56.5" y="50.1" height="49.8" width={width} fill={props.colors && props.colors.length > 2 ? props.colors[2] : '#FCC1C0'} />

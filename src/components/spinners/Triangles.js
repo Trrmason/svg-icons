@@ -28,19 +28,19 @@ const Icon = styled.svg``
 
 const TriangleOne = styled.polygon`
     transform-origin:center;
-    animation: ${flipOne} 2.5s linear infinite;
+    animation: ${flipOne} 3.5s linear infinite;
 `
 const TriangleTwo = styled.polygon`
     transform-origin:center;
-    animation: ${flipTwo} 2.5s linear infinite;
+    animation: ${flipTwo} 3.5s linear infinite;
 `
 const TriangleThree = styled.polygon`
     transform-origin:center;
-    animation: ${flipThree} 2.5s linear infinite;
+    animation: ${flipThree} 3.5s linear infinite;
 `
 const TriangleFour = styled.polygon`
     transform-origin:center;
-    animation: ${flipFour} 2.5s linear infinite;
+    animation: ${flipFour} 3.5s linear infinite;
 `
 
 
