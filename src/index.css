@@ -87,6 +87,7 @@ body {
     height: 200%;
     background-color: white;
     box-shadow: 0px 0px 5px #85CDCA;
+    padding-top: 15%;
 }
 
 .size-input {
@@ -112,4 +113,14 @@ body {
 
 .size-input:focus{
     outline: none;
+}
+.title {
+    font-family: Comfortaa;
+    font-size: 4vw;
+    position: absolute;
+    color: rgb(105, 105, 105);
+    top: 3%;
+    text-align: center;
+    width: 100%;
+    line-height: 0;
 }

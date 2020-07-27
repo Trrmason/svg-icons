@@ -16,6 +16,7 @@ const Spinners = () => {
     
     return (
         <div className='spinners-holder'>
+        <h1 className='title'> Spinners </h1>
             <DropDown 
                     text='Circles' 
                     width='25%' 
