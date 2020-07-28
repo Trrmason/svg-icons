@@ -5,14 +5,18 @@ import Wheel from './spinners/Wheel'
 import Triangles from './spinners/Triangles'
 import DropDown from './cards/DropDown'
 import { GithubPicker } from 'react-color';
+import Pulse from './spinners/Pulse'
+import Clack from './spinners/Clack'
 
 
 const Spinners = () => {
 
     const [circles, setCircles] = useState({size:35, colors:[]})
-    const [stairs, setStairs] = useState({size:35, colors:[], width:'20px'})
+    const [stairs, setStairs] = useState({size:35, colors:[], width:20})
     const [wheel, setWheel] = useState({size:35, colors:[]})
     const [triangles, setTriangles] = useState({size:35, colors:[]})
+    const [pulse, setPulse] = useState({size:35, color: ''})
+    const [clack, setClack] = useState({size:35, color: ''})
     
     return (
         <div className='spinners-holder'>
@@ -69,7 +73,17 @@ const Spinners = () => {
                                 max='100' 
                                 value={stairs.size}
                                 onChange={e => setStairs({...stairs, size:e.target.value})}
-                            />    
+                            />
+                            <label className='width-label' for='stairs-width'>Width</label>
+                            <input
+                                className='width-input' 
+                                id='stairs-width' 
+                                type='text'
+                                min='1'
+                                max='100' 
+                                value={stairs.width}
+                                onChange={e => setStairs({...stairs, width:e.target.value})}
+                            />     
                         </>                    
                     }
             />
@@ -128,28 +142,60 @@ const Spinners = () => {
                         </>
                     }
             />
-            {/* <DropDown 
-                    text='Triangles' 
+           <DropDown 
+                    text='Pulse' 
                     width='25%' 
-                    height='50%'
+                    height='20%'
+                    expand='30%'
                     content={
-                            <Triangles
-                                size='30%' 
-                                style= {{position:'absolute', left:'34%', bottom: '30%'}} 
+                            <Pulse
+                                size={`${pulse.size}%`}
+                                color= {pulse.color}  
+                                style= {{position:'absolute'}} 
                             />
                             }
+                    adjust = {
+                        <>
+                            <label className='size-label' for='pulse-size'>Size</label>
+                            <input 
+                                className='size-input'
+                                id='pulse-size' 
+                                type='text'
+                                min='1'
+                                max='100' 
+                                value={pulse.size}
+                                onChange={e => setPulse({...pulse, size:e.target.value})}
+                            />                        
+                        </>
+                    }
             />
             <DropDown 
-                    text='Triangles' 
+                    text='Clack' 
                     width='25%' 
-                    height='50%'
+                    height='20%'
+                    expand='30%'
                     content={
-                            <Triangles
-                                size='30%' 
-                                style= {{position:'absolute', left:'34%', bottom: '30%'}} 
+                            <Clack
+                                size={`${clack.size}%`}
+                                color= {clack.color}  
+                                style= {{position:'absolute'}} 
                             />
                             }
-            /> */}
+                    adjust = {
+                        <>
+                            <label className='size-label' for='clack-size'>Size</label>
+                            <input 
+                                className='size-input'
+                                id='clack-size' 
+                                type='text'
+                                min='1'
+                                max='100' 
+                                value={clack.size}
+                                onChange={e => setClack({...clack, size:e.target.value})}
+                            />                        
+                        </>
+                    }
+            />
         </div>
     )
 }
