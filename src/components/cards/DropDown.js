@@ -3,10 +3,15 @@ import styled, {keyframes} from 'styled-components'
 import ArrowDown from '../buttons/ArrowDown'
 import ArrowUp from '../buttons/ArrowUp'
 
+const grow = keyframes`
+`
+
+
 const Card = styled.div`
     box-shadow: 0px 0px 4px grey;
     position: relative;
     margin: 4.1%;
+    transition: ease .5s;
 `
 
 const Text = styled.h1`
