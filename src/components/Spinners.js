@@ -50,6 +50,33 @@ const Spinners = () => {
                     }
             />
             <DropDown 
+                    text='Pulse' 
+                    width='25%' 
+                    height='20%'
+                    expand='30%'
+                    content={
+                            <Pulse
+                                size={`${pulse.size}%`}
+                                color= {pulse.color}  
+                                style= {{position:'absolute'}} 
+                            />
+                            }
+                    adjust = {
+                        <>
+                            <label className='size-label' for='pulse-size'>Size</label>
+                            <input 
+                                className='size-input'
+                                id='pulse-size' 
+                                type='text'
+                                min='1'
+                                max='100' 
+                                value={pulse.size}
+                                onChange={e => setPulse({...pulse, size:e.target.value})}
+                            />                        
+                        </>
+                    }
+            />
+            <DropDown 
                     text='Stairs' 
                     width='25%' 
                     height='20%'
@@ -138,33 +165,6 @@ const Spinners = () => {
                                 max='100' 
                                 value={triangles.size}
                                 onChange={e => setTriangles({...triangles, size:e.target.value})}
-                            />                        
-                        </>
-                    }
-            />
-           <DropDown 
-                    text='Pulse' 
-                    width='25%' 
-                    height='20%'
-                    expand='30%'
-                    content={
-                            <Pulse
-                                size={`${pulse.size}%`}
-                                color= {pulse.color}  
-                                style= {{position:'absolute'}} 
-                            />
-                            }
-                    adjust = {
-                        <>
-                            <label className='size-label' for='pulse-size'>Size</label>
-                            <input 
-                                className='size-input'
-                                id='pulse-size' 
-                                type='text'
-                                min='1'
-                                max='100' 
-                                value={pulse.size}
-                                onChange={e => setPulse({...pulse, size:e.target.value})}
                             />                        
                         </>
                     }
