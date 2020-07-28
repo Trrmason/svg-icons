@@ -3,13 +3,25 @@ import styled, {keyframes} from 'styled-components'
 
 
 
+const flipOne = keyframes`
+    0% {transform: scale(1)}
+    100% {transform: scale(.57);
+          opacity: 0;
+          }
+    `
+
 const Icon = styled.svg `
     &:hover { 
         cursor: pointer;
-        stroke: yellow;
+    };
+    &:hover > polygon:nth-child(1){ 
+        cursor: pointer;
+        animation: ${flipOne} 2.5s forwards;
     };
 `
+
 const OuterTriangle = styled.polygon `
+    transform-origin: center;
     fill: none;
     stroke-dasharray: 41;
     stroke-dashoffset: 2;
@@ -29,7 +41,7 @@ const ArrowUp = props => {
             />
             <InnerTriangle 
                 points="44.6,8.4 69.8,30.3 19.5,30.3 "
-                stroke={props.colors && props.colors.length > 1 ? props.colors[1] : 'grey'}
+                stroke={props.colors && props.colors.length > 1 ? props.colors[1] : '#85CDCA'}
             />
         </Icon>
     )
