@@ -7,6 +7,7 @@ import DropDown from './cards/DropDown'
 import Pulse from './spinners/Pulse'
 import Clack from './spinners/Clack'
 import Holder from './Holder'
+import Bounce from './spinners/Bounce'
 import { TwitterPicker } from 'react-color'
 
 
@@ -19,6 +20,7 @@ const Spinners = () => {
     const [triangles, setTriangles] = useState({size:35, colorOne:'#FCC1C0', colorTwo:'#85CDCA', colorThree:'#C38D9D', colorFour:'teal'})
     const [pulse, setPulse] = useState({size:35, colorOne: '#FCC1C0', colorTwo:'#FCC1C0'})
     const [clack, setClack] = useState({size:35, color: '#85CDCA'})
+    const [bounce, setBounce] = useState({size:35, colorOne:'#FCC1C0', colorTwo:'#85CDCA', colorThree:'#C38D9D', colorFour:'teal'})
  
     return (
         <div className='spinners-holder'>
@@ -267,6 +269,49 @@ const Spinners = () => {
                                     content={<TwitterPicker triangle='hide' width='300px'  onChange={(color) => setClack({...clack, color:color.hex})} />}
                                     style={{backgroundColor: clack.color, boxShadow: `0px 0px 3px ${clack.color}`, left:'45%'}}
                                 />
+                            </div>                                         
+                        </>
+                    }
+            />
+             <DropDown 
+                    text='Bounce' 
+                    content={
+                            <Bounce
+                                size={`${bounce.size}%`}
+                                colors= {[bounce.colorOne, bounce.colorTwo, bounce.colorThree, bounce.colorFour]} 
+                                style= {{position:'absolute'}} 
+                            />
+                            }
+                    adjust = {
+                        <>
+                            <label className='size-label' for='bounce-size'>Size</label>
+                            <input 
+                                className='size-input'
+                                id='bounce-size' 
+                                type='text'
+                                min='1'
+                                max='100' 
+                                value={bounce.size}
+                                onChange={e => setBounce({...bounce, size:e.target.value})}
+                            />
+                            <div className='color-holder'>
+                                <label className='color-label'> Colors </label>
+                                <Holder 
+                                    content={<TwitterPicker triangle='hide' width='300px'  onChange={(color) => setBounce({...bounce, colorOne:color.hex})}/>}
+                                    style={{backgroundColor: bounce.colorOne, boxShadow: `0px 0px 3px ${bounce.colorOne}`, left:'10%'}}
+                                />
+                                <Holder 
+                                    content={<TwitterPicker triangle='hide' width='300px'  onChange={(color) => setBounce({...bounce, colorTwo:color.hex})} />}
+                                    style={{backgroundColor: bounce.colorTwo, boxShadow: `0px 0px 3px ${bounce.colorTwo}`, left:'35%'}}
+                                />
+                                <Holder 
+                                    content= {<TwitterPicker triangle='hide' width='300px'  onChange={(color) => setBounce({...bounce, colorThree:color.hex})} />}
+                                    style= {{backgroundColor: bounce.colorThree, boxShadow: `0px 0px 3px ${bounce.colorThree}`, left:'60%'}}
+                                />
+                                <Holder 
+                                    content= {<TwitterPicker triangle='hide' width='300px'  onChange={(color) => setBounce({...bounce, colorFour:color.hex})} />}
+                                    style= {{backgroundColor: bounce.colorFour, boxShadow: `0px 0px 3px ${bounce.colorFour}`, left:'85%'}}
+                                /> 
                             </div>                                         
                         </>
                     }
