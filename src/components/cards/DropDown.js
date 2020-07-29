@@ -91,7 +91,6 @@ const Adjust = styled.span`
 
 const DropDown = props => {
 
-    const [height, setHeight] = useState('20%')
     const [expanded, setExpanded] = useState(false)
 
     return (
@@ -130,7 +129,7 @@ const DropDown = props => {
                                 justifyContent: 'center',
                                 alignItems: 'center',
                                 bottom:'2%'}}
-                        onClick={() => (!expanded) && setHeight(props.expand) & setExpanded(true)}
+                        onClick={() => (!expanded) && setExpanded(true)}
                     /> :
                     <ArrowUp 
                         width='4vw' 
@@ -141,7 +140,7 @@ const DropDown = props => {
                                 justifyContent: 'center',
                                 alignItems: 'center',
                                 bottom:'2%'}}
-                        onClick={() => (expanded) && setHeight(props.height) & setExpanded(false)}
+                        onClick={() => (expanded) && setExpanded(false)}
                     />
                 }
 

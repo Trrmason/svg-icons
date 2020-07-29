@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import Circles from './spinners/Circles'
 import Stairs from './spinners/Stairs'
 import Wheel from './spinners/Wheel'
