@@ -7,38 +7,25 @@ import DropDown from './cards/DropDown'
 import Pulse from './spinners/Pulse'
 import Clack from './spinners/Clack'
 import Holder from './Holder'
-import getWindowDimensions from './window/Window'
 import { TwitterPicker } from 'react-color'
 
 
 
 const Spinners = () => {
 
-    const {width, height} = getWindowDimensions()
     const [circles, setCircles] = useState({size:35, colorOne:'#FCC1C0', colorTwo:'#85CDCA', colorThree:'#C38D9D'})
     const [stairs, setStairs] = useState({size:35, colorOne:'#FCC1C0', colorTwo:'#85CDCA', colorThree:'#C38D9D', colorFour:'teal', width:20})
     const [wheel, setWheel] = useState({size:35, colorOne:'#FCC1C0', colorTwo:'#85CDCA', colorThree:'#C38D9D', colorFour:'teal'})
     const [triangles, setTriangles] = useState({size:35, colorOne:'#FCC1C0', colorTwo:'#85CDCA', colorThree:'#C38D9D', colorFour:'teal'})
     const [pulse, setPulse] = useState({size:35, colorOne: '#FCC1C0', colorTwo:'#FCC1C0'})
     const [clack, setClack] = useState({size:35, color: '#85CDCA'})
-    const [dropDownWidth, setDropDownWidth] = useState((width > 1000) ? '25%' : (width > 500) ? '41.5%' : '100%')
-    const [dropDownHeight, setDropDownHeight] = useState((height > 700) ? 20 :  (height > width) ? 9 : 15)
-    
-    useEffect(() => {
-        return setDropDownWidth((width > 1000) ? '25%' : (width > 500) ? '41.5%' : '100%')
-    },[width])
-    useEffect(() => {
-        return setDropDownHeight((height > 700) ? 20 :  (height > width) ? 9 : 15)
-    },[height])
-
+ 
     return (
         <div className='spinners-holder'>
         <h1 className='title'> Spinners </h1>
-            <DropDown 
-                    text='Circles' 
-                    width={dropDownWidth}
-                    height={`${dropDownHeight}%`}
-                    expand={`${dropDownHeight + 5}%`}
+            <DropDown
+                    className='drop-down'
+                    text='Circles'
                     content={
                             (circles.size > 0) &&
                             <Circles
@@ -79,9 +66,6 @@ const Spinners = () => {
             />
             <DropDown 
                     text='Pulse' 
-                    width={dropDownWidth}
-                    height={`${dropDownHeight}%`}
-                    expand={`${dropDownHeight + 5}%`}
                     content={
                             <Pulse
                                 size={`${pulse.size}%`}
@@ -117,9 +101,6 @@ const Spinners = () => {
             />
             <DropDown 
                     text='Stairs' 
-                    width={dropDownWidth}
-                    height={`${dropDownHeight}%`}
-                    expand={`${dropDownHeight + 5}%`}
                     content={
                             <Stairs 
                                 size={`${stairs.size}%`}
@@ -175,9 +156,6 @@ const Spinners = () => {
 
             <DropDown 
                     text='Wheel' 
-                    width={dropDownWidth}
-                    height={`${dropDownHeight}%`}
-                    expand={`${dropDownHeight + 5}%`}
                     content={
                             <Wheel 
                                 size={`${wheel.size}%`}
@@ -221,9 +199,6 @@ const Spinners = () => {
             />
             <DropDown 
                     text='Triangles' 
-                    width={dropDownWidth}
-                    height={`${dropDownHeight}%`}
-                    expand={`${dropDownHeight + 5}%`}
                     content={
                             <Triangles
                                 size={`${triangles.size}%`}
@@ -267,9 +242,6 @@ const Spinners = () => {
             />
             <DropDown 
                     text='Clack' 
-                    width={dropDownWidth}
-                    height={`${dropDownHeight}%`}
-                    expand={`${dropDownHeight + 5}%`}
                     content={
                             <Clack
                                 size={`${clack.size}%`}

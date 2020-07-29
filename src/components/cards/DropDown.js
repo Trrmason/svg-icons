@@ -1,15 +1,67 @@
 import React, {useState} from 'react'
-import styled from 'styled-components'
+import styled, {keyframes} from 'styled-components'
 import ArrowDown from '../buttons/ArrowDown'
 import ArrowUp from '../buttons/ArrowUp'
 
+
+const active = keyframes`
+    100%{
+        height: 25%
+    }
+`
+
+const mobileActive = keyframes`
+    100%{
+        height: 20%
+    }
+`
+
+const deActive = keyframes`
+    0%{
+        height: 25%
+    }
+    100%{
+        height: 20%
+    }
+`
+
+const deMobileActive = keyframes`
+    0%{
+        height: 20%
+    }
+    100%{
+        height: 15%
+    }
+`
 
 const Card = styled.div`
     box-shadow: 0px 0px 4px grey;
     position: relative;
     margin: 4.1%;
-    transition: ease .5s;
+    animation: ${deActive} .5s ease forwards;
+    width: 25%;
+    height: 20%;
+    @media (max-width: 1000px){
+        width: 41.5%;
+        height: 15%;
+        animation: ${deMobileActive} .5s ease forwards;
+    }
 `
+
+const ActiveCard = styled.div`
+    box-shadow: 0px 0px 4px grey;
+    position: relative;
+    margin: 4.1%;
+    width: 25%;
+    height: 20%;
+    animation: ${active} .5s ease forwards;
+    @media (max-width: 1000px){
+        width: 41.5%;
+        height: 15%;
+        animation: ${mobileActive} .5s ease forwards;
+    }
+`
+
 
 const Text = styled.h1`
     position: absolute;
@@ -39,14 +91,13 @@ const Adjust = styled.span`
 
 const DropDown = props => {
 
-    const [height, setHeight] = useState(props.height || '50%')
+    const [height, setHeight] = useState('20%')
     const [expanded, setExpanded] = useState(false)
 
     return (
            <Card 
+                as = {(expanded) && ActiveCard}
                 style = {{
-                    height: height,
-                    width: props.width,
                     float: props.float || 'left'
                 }}
             >
