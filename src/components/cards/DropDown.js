@@ -1,10 +1,7 @@
 import React, {useState} from 'react'
-import styled, {keyframes} from 'styled-components'
+import styled from 'styled-components'
 import ArrowDown from '../buttons/ArrowDown'
 import ArrowUp from '../buttons/ArrowUp'
-
-const grow = keyframes`
-`
 
 
 const Card = styled.div`
@@ -43,14 +40,13 @@ const Adjust = styled.span`
 const DropDown = props => {
 
     const [height, setHeight] = useState(props.height || '50%')
-    const [width, setWidth] = useState(props.width || '25%')
     const [expanded, setExpanded] = useState(false)
 
     return (
            <Card 
                 style = {{
                     height: height,
-                    width: width,
+                    width: props.width,
                     float: props.float || 'left'
                 }}
             >
@@ -75,15 +71,25 @@ const DropDown = props => {
 
                 {(!expanded) ?
                     <ArrowDown 
-                        width='3.6vw' 
-                        height='1.2vw'
-                        style={{position:'absolute', left:'40.5%', bottom:'2%'}}
+                        width='4vw' 
+                        height='1.5vw'
+                        style={{display: 'flex',
+                                width: '100%',
+                                position: 'absolute',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                bottom:'2%'}}
                         onClick={() => (!expanded) && setHeight(props.expand) & setExpanded(true)}
                     /> :
                     <ArrowUp 
-                        width='3.6vw' 
-                        height='1.2vw'
-                        style={{position:'absolute', left:'40.5%', bottom:'2%'}}
+                        width='4vw' 
+                        height='1.5vw'
+                        style={{display: 'flex',
+                                width: '100%',
+                                position: 'absolute',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                bottom:'2%'}}
                         onClick={() => (expanded) && setHeight(props.height) & setExpanded(false)}
                     />
                 }

@@ -58,8 +58,8 @@ const Pulse = (props) => {
             height={size} 
             style={props.style}
         >
-            <PulseCircle cx="33.5" cy="33.5" r="22" stroke={props.color || '#FCC1C0'}/>
-            <Circle cx="33.5" cy="33.5" r="18" fill={props.color || '#FCC1C0'}/>
+            <PulseCircle cx="33.5" cy="33.5" r="22" stroke={props.colors && props.colors.length > 1 ? props.colors[1] : '#FCC1C0'}/>
+            <Circle cx="33.5" cy="33.5" r="18" fill={props.colors && props.colors.length > 0 ? props.colors[0] : '#FCC1C0'}/>
         </Icon>
     )
 

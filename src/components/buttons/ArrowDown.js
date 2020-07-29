@@ -1,11 +1,9 @@
 import React from 'react'
 import styled, {keyframes} from 'styled-components'
 
-const flipOne = keyframes`
-    0% {transform: scale(1)}
-    100% {transform: scale(.57);
-          opacity: 0;
-          }
+const grow = keyframes`
+    100% {transform: scale(1);
+          opacity: 1;}
     `
 
 const Icon = styled.svg `
@@ -14,18 +12,21 @@ const Icon = styled.svg `
     };
     &:hover > polygon:nth-child(1){ 
         cursor: pointer;
-        animation: ${flipOne} 2.5s forwards;
+        animation: ${grow} 1s forwards;
     };
 `
+
 const OuterTriangle = styled.polygon `
     transform-origin: center;
     fill: none;
     stroke-dasharray: 41;
     stroke-dashoffset: 2;
+    transform: scale(.57);
+    opacity: 0;
 `
 const InnerTriangle = styled.polygon `
-        fill: none;
-    `
+    fill: none;
+`
 
 const ArrowDown = props => {
 
@@ -38,7 +39,7 @@ const ArrowDown = props => {
             <InnerTriangle 
                 id='inner-triangle'
                 points="44.6,30.3 69.8,8.4 20.5,8.4"
-                stroke={props.colors && props.colors.length > 1 ? props.colors[1] : '#C38D9D'}
+                stroke={props.colors && props.colors.length > 1 ? props.colors[1] : 'grey'}
             />
         </Icon>
     )

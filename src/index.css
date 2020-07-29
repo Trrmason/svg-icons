@@ -87,8 +87,10 @@ body {
     height: 200%;
     background-color: white;
     box-shadow: 0px 0px 5px grey;
-    padding-top: 15%;
+    padding-top: 20%;
 }
+
+
 
 .size-input {
     font-family: Comfortaa-regular;
@@ -138,6 +140,12 @@ body {
 .size-input:focus{
     outline: none;
 }
+
+
+.width-input:focus{
+    outline: none;
+}
+
 .title {
     font-family: Poppins-100;
     font-size: 4vw;
@@ -147,4 +155,21 @@ body {
     text-align: center;
     width: 100%;
     line-height: 0;
+}
+
+.color-label {
+    position: absolute;
+    font-family: Comfortaa-regular;
+    font-size: .8vw;
+    text-align: center;
+    width: 100%;
+    bottom: 115%;
+}
+
+.color-holder {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    left: 50%;
+    z-index: 2;
 }
