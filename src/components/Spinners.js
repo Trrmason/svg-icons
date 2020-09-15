@@ -8,8 +8,11 @@ import Pulse from './spinners/Pulse'
 import Clack from './spinners/Clack'
 import Holder from './Holder'
 import Bounce from './spinners/Bounce'
+import Load from './spinners/Load'
 import { TwitterPicker } from 'react-color'
 
+
+// Demo on how an svg icon component could be implemented.
 
 
 const Spinners = () => {
@@ -21,8 +24,15 @@ const Spinners = () => {
     const [pulse, setPulse] = useState({size:35, colorOne: '#FCC1C0', colorTwo:'#FCC1C0'})
     const [clack, setClack] = useState({size:35, color: '#85CDCA'})
     const [bounce, setBounce] = useState({size:35, colorOne:'#FCC1C0', colorTwo:'#85CDCA', colorThree:'#C38D9D', colorFour:'teal'})
- 
+    const [load, setLoad] = useState({size:35, colorOne:'#FCC1C0', colorTwo:'#85CDCA', colorThree:'#C38D9D', colorFour:'teal', width:20})
+
+
     return (
+
+        //First div is the spinners-holder which is component made just for demo.
+        //The first dropdown content is the icon component.
+        //Each dropdown holds a different component
+
         <div className='spinners-holder'>
         <h1 className='title'> Spinners </h1>
             <DropDown
@@ -30,6 +40,9 @@ const Spinners = () => {
                     text='Circles'
                     content={
                             (circles.size > 0) &&
+
+                            //Circles icon component
+
                             <Circles
                                 size={`${circles.size}%`}
                                 colors= {[circles.colorOne, circles.colorTwo, circles.colorThree]} 
@@ -311,6 +324,60 @@ const Spinners = () => {
                                 <Holder 
                                     content= {<TwitterPicker triangle='hide' width='300px'  onChange={(color) => setBounce({...bounce, colorFour:color.hex})} />}
                                     style= {{backgroundColor: bounce.colorFour, boxShadow: `0px 0px 3px ${bounce.colorFour}`, left:'85%'}}
+                                /> 
+                            </div>                                         
+                        </>
+                    }
+            />
+             <DropDown 
+                    text='Load' 
+                    content={
+                            <Load
+                                size={`${load.size}%`}
+                                width={`${load.width}%`}
+                                colors= {[load.colorOne, load.colorTwo, load.colorThree, load.colorFour]} 
+                                style= {{position:'absolute'}} 
+                            />
+                            }
+                    adjust = {
+                        <>
+                            <label className='size-label' for='load-size'>Size</label>
+                            <input 
+                                className='size-input'
+                                id='load-size' 
+                                type='text'
+                                min='1'
+                                max='100' 
+                                value={load.size}
+                                onChange={e => setLoad({...load, size:e.target.value})}
+                            />
+                            <label className='width-label' for='load-width'>Width</label>
+                            <input
+                                className='width-input' 
+                                id='load-width' 
+                                type='text'
+                                min='1'
+                                max='100' 
+                                value={load.width}
+                                onChange={e => setLoad({...load, width:e.target.value})}
+                            />
+                            <div className='color-holder'>
+                                <label className='color-label'> Colors </label>
+                                <Holder 
+                                    content={<TwitterPicker triangle='hide' width='300px'  onChange={(color) => setLoad({...load, colorOne:color.hex})}/>}
+                                    style={{backgroundColor: load.colorOne, boxShadow: `0px 0px 3px ${load.colorOne}`, left:'10%'}}
+                                />
+                                <Holder 
+                                    content={<TwitterPicker triangle='hide' width='300px'  onChange={(color) => setLoad({...load, colorTwo:color.hex})} />}
+                                    style={{backgroundColor: load.colorTwo, boxShadow: `0px 0px 3px ${load.colorTwo}`, left:'35%'}}
+                                />
+                                <Holder 
+                                    content= {<TwitterPicker triangle='hide' width='300px'  onChange={(color) => setLoad({...load, colorThree:color.hex})} />}
+                                    style= {{backgroundColor: load.colorThree, boxShadow: `0px 0px 3px ${load.colorThree}`, left:'60%'}}
+                                />
+                                <Holder 
+                                    content= {<TwitterPicker triangle='hide' width='300px'  onChange={(color) => setLoad({...load, colorFour:color.hex})} />}
+                                    style= {{backgroundColor: load.colorFour, boxShadow: `0px 0px 3px ${load.colorFour}`, left:'85%'}}
                                 /> 
                             </div>                                         
                         </>
